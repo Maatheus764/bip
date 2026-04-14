@@ -1,15 +1,14 @@
-
 import time
 import requests
 import logging
 
-URL do webhook que será disparado
+# URL do webhook que será disparado
 WEBHOOK_URL = "https://n8n.pontodaesfihalp.com.br/webhook/timer"
 
-Intervalo entre cada disparo (10 minutos)
+# Intervalo entre cada disparo (10 minutos)
 INTERVALO_SEGUNDOS = 10 * 60
 
-Log com data e hora para acompanhar o que está acontecendo
+# Log com data e hora
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(message)s",
@@ -23,7 +22,7 @@ def disparar_webhook():
     except Exception as e:
         logging.error(f"Erro ao disparar webhook: {e}")
 
-if name == "main":
+if __name__ == "__main__":
     logging.info("Iniciando timer — webhook a cada 10 minutos.")
     while True:
         disparar_webhook()
